@@ -1,5 +1,6 @@
 package com.openclassrooms.arista.ui.exercise
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ class ExerciseAdapter(private val context: DeleteExerciseInterface) :
         return ExerciseViewHolder(itemView)
     }
 
+    @SuppressLint("DefaultLocale")
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val exercise = getItem(position)
         val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")

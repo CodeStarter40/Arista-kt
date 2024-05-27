@@ -8,7 +8,7 @@ data class Exercise(
     val startTime: LocalDateTime,
     val duration: Int,
     val category: String,
-    val quality: Int,
+    val intensity: Int,
     val userId: Int
 ) {
     companion object {
@@ -18,7 +18,7 @@ data class Exercise(
                 startTime = dto.startTime,
                 duration = dto.duration,
                 category = dto.category,
-                quality = dto.quality,
+                intensity = dto.intensity,
                 userId = dto.userId
             )
         }
@@ -30,7 +30,7 @@ data class Exercise(
             startTime = this.startTime,
             duration = this.duration,
             category = this.category,
-            quality = this.quality,
+            intensity = this.intensity,
             userId = this.userId
         )
     }

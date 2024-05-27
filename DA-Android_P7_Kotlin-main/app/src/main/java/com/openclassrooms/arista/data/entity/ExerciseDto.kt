@@ -25,8 +25,8 @@ data class ExerciseDto(
     var category: String,
 
 
-    @ColumnInfo(name = "quality")
-    var quality: Int,
+    @ColumnInfo(name = "intensity")
+    var intensity: Int,
 
     @ColumnInfo(name = "user_id")
     var userId: Int //ForeignKey to UserDto
