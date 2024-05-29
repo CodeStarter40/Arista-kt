@@ -6,7 +6,8 @@ import com.openclassrooms.arista.domain.model.Sleep
 import com.openclassrooms.arista.domain.model.User
 import java.time.LocalDateTime
 
-class FakeApiService {
+/*class FakeApiService {
+
 
     // Static data
     var user: User = User("John Doe", "johndoe@example.com")
@@ -52,3 +53,4 @@ class FakeApiService {
         exerciseData.remove(exercise)
     }
 }
+*/

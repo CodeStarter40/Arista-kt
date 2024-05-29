@@ -9,7 +9,6 @@ data class Exercise(
     val duration: Int,
     val category: String,
     val intensity: Int,
-    val userId: Int
 ) {
     companion object {
         fun fromDto(dto: ExerciseDto): Exercise {
@@ -18,8 +17,7 @@ data class Exercise(
                 startTime = dto.startTime,
                 duration = dto.duration,
                 category = dto.category,
-                intensity = dto.intensity,
-                userId = dto.userId
+                intensity = dto.intensity
             )
         }
     }
@@ -31,7 +29,6 @@ data class Exercise(
             duration = this.duration,
             category = this.category,
             intensity = this.intensity,
-            userId = this.userId
         )
     }
 }
