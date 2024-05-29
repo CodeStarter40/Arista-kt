@@ -8,7 +8,7 @@ class SleepRepository(private val sleepDao: SleepDtoDao) {
 
 
     // Get all exercises
-    suspend fun getAllExercises(): List<Sleep> {
+    suspend fun getAllSleeps(): List<Sleep> {
         return sleepDao.getAllSleeps()
             .first() // Collect the first emission of the Flow
             .map { Sleep.fromDto(it) } // Convert every DTO in Sleep

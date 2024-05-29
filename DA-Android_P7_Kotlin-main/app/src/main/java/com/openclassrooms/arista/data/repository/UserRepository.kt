@@ -12,6 +12,11 @@ class UserRepository(private val userDao:UserDtoDao) {
             .map {User.fromDto(it)}
     }
 
+    suspend fun getUserById(id:Long): User? {
+        val userDto = userDao.getUserById(id)
+        return userDto?.let { User(it.id, it.name, it.email) }
+    }
+
     suspend fun deleteUserById(user:User) {
         user.id?.let { userDao.deleteUserById(id = user.id,) }
     }
