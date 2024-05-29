@@ -1,5 +1,8 @@
 package com.openclassrooms.arista.di
 
+import com.openclassrooms.arista.data.dao.ExerciseDtoDao
+import com.openclassrooms.arista.data.dao.SleepDtoDao
+import com.openclassrooms.arista.data.dao.UserDtoDao
 import com.openclassrooms.arista.data.repository.ExerciseRepository
 import com.openclassrooms.arista.data.repository.SleepRepository
 import com.openclassrooms.arista.data.repository.UserRepository
@@ -14,19 +17,19 @@ import javax.inject.Singleton
 class AppModule {
     @Provides
     @Singleton
-    fun provideUserRepository(): UserRepository {
-        return UserRepository()
+    fun provideUserRepository(userDao:UserDtoDao): UserRepository {
+        return UserRepository(userDao)
     }
 
     @Provides
     @Singleton
-    fun provideSleepRepository(): SleepRepository {
-        return SleepRepository()
+    fun provideSleepRepository(sleepDao:SleepDtoDao): SleepRepository {
+        return SleepRepository(sleepDao)
     }
 
     @Provides
     @Singleton
-    fun provideExerciseRepository(): ExerciseRepository {
-        return ExerciseRepository()
+    fun provideExerciseRepository(exerciseDao: ExerciseDtoDao): ExerciseRepository {
+        return ExerciseRepository(exerciseDao)
     }
 }
