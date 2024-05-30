@@ -8,7 +8,7 @@ data class Sleep(@JvmField
                  var startTime: LocalDateTime,
                  var duration: Int,
                  var quality: Int,
-                 var userId:Int,
+                 var userId:Long,
                  val id:Long? = null
 ){
     companion object {

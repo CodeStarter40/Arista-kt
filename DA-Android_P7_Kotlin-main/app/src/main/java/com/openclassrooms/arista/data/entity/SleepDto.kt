@@ -24,5 +24,5 @@ data class SleepDto (
     var quality: Int,
 
     @ColumnInfo(name = "user_id")
-    var userId: Int //foreign key to UserDto
+    var userId: Long //foreign key to UserDto
 )
