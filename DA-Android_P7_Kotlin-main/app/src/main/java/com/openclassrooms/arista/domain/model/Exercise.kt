@@ -10,6 +10,7 @@ data class Exercise(
     val duration: Int,
     val category: String,
     val intensity: Int,
+    val userId: Long,
 ) {
     companion object {
         fun fromDto(dto: ExerciseDto): Exercise {
@@ -18,7 +19,8 @@ data class Exercise(
                 startTime = LocalDateTime.ofEpochSecond(dto.startTime / 1000, 0, ZoneOffset.UTC),
                 duration = dto.duration,
                 category = dto.category,
-                intensity = dto.intensity
+                intensity = dto.intensity,
+                userId = dto.userId
             )
         }
     }
@@ -30,6 +32,7 @@ data class Exercise(
             duration = this.duration,
             category = this.category,
             intensity = this.intensity,
+            userId = this.userId
         )
     }
 }

@@ -33,8 +33,7 @@ class UserDataFragment : Fragment() {
             viewModel.userFlow.collect { user: User? ->
                 user?.let {
                     binding.etName.setText(it.name)
-                    binding.etEmail.setText(it.email)
-                }
+                    binding.etEmail.setText(it.email) }
             }
         }
     }

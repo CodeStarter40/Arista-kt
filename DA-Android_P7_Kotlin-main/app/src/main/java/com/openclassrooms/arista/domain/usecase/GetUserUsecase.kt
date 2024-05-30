@@ -6,13 +6,8 @@ import javax.inject.Inject
 
 class GetUserUsecase @Inject constructor(private val userRepository: UserRepository) {
 
-    //user all
-    suspend fun executeAll(): List<User> {
-        return userRepository.getAllUsers()
-    }
-
     //user unique
-    suspend fun execute(id:Long): User? {
+    suspend fun execute(id: Long): User? {
         return userRepository.getUserById(id)
     }
 }

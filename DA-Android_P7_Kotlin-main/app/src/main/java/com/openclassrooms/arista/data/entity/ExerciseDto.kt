@@ -25,5 +25,8 @@ data class ExerciseDto(
 
 
     @ColumnInfo(name = "intensity")
-    var intensity: Int
+    var intensity: Int,
+
+    @ColumnInfo(name ="user_id")
+    var userId: Long
 )

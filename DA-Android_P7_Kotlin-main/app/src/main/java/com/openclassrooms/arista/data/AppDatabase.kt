@@ -60,6 +60,14 @@ abstract class AppDatabase : RoomDatabase() {
 
         suspend fun populateDatabase(sleepDao: SleepDtoDao, userDtoDao: UserDtoDao) {
 
+            userDtoDao.insertUser(
+                UserDto(
+                    id = 1,
+                    name = "Ben",
+                    email = "ben@gmail.com",
+
+                    )
+            )
 
             sleepDao.insertSleep(
                 SleepDto(
@@ -75,14 +83,6 @@ abstract class AppDatabase : RoomDatabase() {
                     duration = 450,
                     quality = 3,
                     userId = 1
-                )
-            )
-            userDtoDao.insertUser(
-                UserDto(
-                    id = 1,
-                    name = "Ben",
-                    email = "ben@gmail.com",
-
                 )
             )
         }

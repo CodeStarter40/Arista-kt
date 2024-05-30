@@ -108,12 +108,14 @@ class ExerciseFragment : Fragment(), DeleteExerciseInterface {
 
         val duration = durationStr.toInt()
         val intensity = intensityStr.toInt()
+        val userIdKey = "userId"
+        val userId = requireArguments().getLong(userIdKey)
         val category = categorySpinner.selectedItem as ExerciseCategory
 
         val newExercise =
             Exercise(System.currentTimeMillis(), LocalDateTime.now(), duration,
-                category.toString(), intensity)
-        viewModel.addNewExercise(newExercise)
+                category.toString(), intensity, userId)
+        viewModel.addNewExercise(newExercise, userId)
     }
 
     private fun validateDuration(duration: String): Boolean {
@@ -159,6 +161,6 @@ class ExerciseFragment : Fragment(), DeleteExerciseInterface {
     }
 
     override fun deleteExercise(exercise: Exercise?) {
-        exercise?.let { viewModel.deleteExercise(it) }
+        exercise?.let { viewModel.deleteExercise(it, it.userId) }
     }
 }

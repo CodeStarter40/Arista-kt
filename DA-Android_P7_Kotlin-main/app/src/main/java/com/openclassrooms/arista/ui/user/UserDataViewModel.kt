@@ -18,7 +18,8 @@ class UserDataViewModel @Inject constructor(private val getUserUsecase: GetUserU
     private val _userFlow = MutableStateFlow<User?>(null)
     val userFlow: StateFlow<User?> = _userFlow.asStateFlow()
 
-    private fun loadUserData(userId:Long) {
+
+    fun loadUserData(userId: Long) {
         viewModelScope.launch(Dispatchers.IO) {
             val user = getUserUsecase.execute(userId)
             _userFlow.value = user
