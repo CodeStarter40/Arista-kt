@@ -23,7 +23,7 @@ class UserDataViewModel @Inject constructor(private val getUserUsecase: GetUserU
     }
 
 
-    fun loadUserData(userId: Long) {
+    private fun loadUserData(userId: Long) {
         viewModelScope.launch(Dispatchers.IO) {
             val user = getUserUsecase.execute(userId)
             _userFlow.value = user

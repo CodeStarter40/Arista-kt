@@ -7,14 +7,22 @@ import kotlinx.coroutines.flow.first
 class UserRepository(private val userDao:UserDtoDao) {
 
     suspend fun getAllUsers(): List<User> {
-        return userDao.getAllUsers()
-            .first()
-            .map {User.fromDto(it)}
+        return try {
+            userDao.getAllUsers()
+                .first()
+                .map { User.fromDto(it) }
+        } catch (e: Exception)
+    { throw Exception("Erreur lors de la récuperation des users: ${e.message}")
+        }
     }
+
 
     suspend fun getUserById(id: Long): User? {
         val userDto = userDao.getUserById(id)
-        return userDto?.let { User.fromDto(it) }
+        return try { userDto?.let { User.fromDto(it) }
+    } catch (e: Exception)
+    { throw Exception("Erreur lors de la récuperation de l'utilisateur: ${e.message}")
+        }
     }
 
     suspend fun deleteUserById(user:User) {
