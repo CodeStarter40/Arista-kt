@@ -3,6 +3,7 @@ package com.openclassrooms.arista
 import com.openclassrooms.arista.data.repository.ExerciseRepository
 import com.openclassrooms.arista.domain.model.Exercise
 import com.openclassrooms.arista.domain.usecase.DeleteExerciseUseCase
+import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
@@ -35,5 +36,7 @@ class DeleteExerciseUseCaseTest {
     fun deleteExercise() = runBlocking {
         useCase.execute(fakeExercise)
         verify(repository).deleteExercise(fakeExercise)
+        val allExercises = repository.getAllExercises()
+        assertTrue(allExercises.isNullOrEmpty())
     }
 }
